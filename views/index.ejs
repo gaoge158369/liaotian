@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="/css/css.css">
+</head>
+<body>
+	<div class="box">
+		<div class="head">
+			<div class='head-up'>
+				<img src="/images/<%=username%>.jpg" alt="">
+				<h2><span style="font-size:16px">欢迎你：</span><span style="color:red"><%= username %></span></h2>
+			</div>
+			<div class="head-down"></div>
+		</div>
+		<div class="content">
+
+<!-- 		<div class="messageRight">
+				<img src="/images/<%=username%>.jpg" alt="">
+				<div><li>高歌说</li></div>
+			</div> -->
+
+		</div>
+		<div class="foot">
+			<textarea name="textarea" id="text" cols="30" rows="10"></textarea>
+			<button>发送</button>
+		</div>
+	</div>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/js/jquery.min.js"></script>
+	<script>
+		var socket=io();
+		$("button").click(function(){
+			
+			if($("#text").val()==""){
+				alert("不能为空");
+			}else{
+				socket.emit("liaotian",{
+				"neirong":$("#text").val(),
+				"ren":"<%=username%>",
+				"index":<%=index%>
+				});
+				$("#text").val("");
+			}
+			// socket.on("liaotian",function(msg){
+			// 	$(".content").append('<div class="messageRight"><img src="/images/'+msg.ren+'.jpg" alt=""><div>'+msg.neirong+'</div></div>')
+			// });
+		});
+
+		$("#text").keydown(function(e){
+			if(e.keyCode == 13){
+				//把文本框的内容上传：
+			if($("#text").val()==""){
+				alert("不能为空");
+			}else{
+				socket.emit("liaotian",{
+				"neirong":$("#text").val(),
+				"ren":"<%=username%>",
+				"index":<%=index%>
+				});
+				$("#text").val("");
+			}
+			}
+		});
+
+
+		socket.on("liaotian",function(msg){
+			if(msg.index==1){
+				$(".content").append('<div class="messageRight"><img src="/images/'+msg.ren+'.jpg" alt=""><div><li>'+msg.ren+'说</li>'+msg.neirong+'</div></div>')
+			}else if(msg.index==2){
+				$(".content").append('<div class="messageLeft"><img src="/images/'+msg.ren+'.jpg" alt=""><div><li>'+msg.ren+'说</li>'+msg.neirong+'</div></div>')
+			}
+				
+		});				
+
+	</script>
+</body>
+</html>

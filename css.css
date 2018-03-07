@@ -1,0 +1,111 @@
+.box{
+	width: 500px;
+	height: 500px;
+	margin:50px auto 0;
+	border:2px solid #ccc;
+	overflow: hidden;
+	border-radius: 5px;
+	background-color: #ECF2F8;
+	position: relative;
+}
+.head{
+	height: 45px;
+	background-color: yellow;
+}
+.head-up{
+	position: relative;
+	height: 45px;
+	background-color: #EDF2F9;
+}
+.head-up img{
+	position: absolute;
+	margin-top:10px;
+	margin-left:10px;
+	width: 30px;
+	height: 30px;
+	top:0;
+	left:0;
+	border-radius: 15px;
+
+}
+.head-up h2{
+	padding:0;
+	margin:0;
+	position: absolute;
+	bottom: 5px;
+	left:50px;
+	font-weight: 200;
+	font-size: 20px;
+}
+.content{
+	height: 334px;
+	width: 100%;
+	background-color: #ECF2F8;
+	padding:5px 0;
+	border-top: 1px solid #ccc;
+	overflow-y: scroll;
+	overflow-x:hidden;
+}
+.content .messageLeft{
+	width: 500px;
+	overflow: hidden;
+}
+.content .messageLeft img{
+	float: left;
+	width: 25px;
+	height: 25px;
+	border-radius: 14px;
+	margin:5px;
+}
+.content .messageLeft div{
+	float: left;
+	border:2px solid #ccc;
+	border-radius: 5px;
+	background: #fff;
+	padding:3px 10px;
+}
+.content .messageRight{
+	width: 500px;
+	overflow: hidden;
+}
+.content .messageRight img{
+	float: right;
+	width: 25px;
+	height: 25px;
+	border-radius: 14px;
+	margin:5px 23px 5px 5px;
+}
+.content .messageRight div{
+	float: right;
+	border:2px solid #ccc;
+	border-radius: 5px;
+	background: #fff;
+	padding:3px 10px;
+}
+.foot{
+	height: 110px;
+	background-color: pink;
+	border-top: 1px solid #ccc;
+	position: absolute;
+	bottom: 0;
+}
+.foot textarea{
+	width: 500px;
+	height: 110px;
+	border:none;
+	outline-style: none;
+	padding:0;
+	background: #ECF1F8;
+	resize: none;
+}
+.foot button{
+	position: absolute;
+	outline-style: none;
+	right:11px;
+	bottom: 16px;
+	padding:3px 10px;
+	border: none;
+	background: #009BDB;
+	border-radius: 10px;
+	color: #fff;
+}
